@@ -5,6 +5,21 @@ import { ref } from "vue";
 const img_boxRef = ref(null);
 const imgRef = ref(null);
 
+const listRef = ref(null);
+const swipe = ref(null);
+
+let left = 0;
+
+const move = () => {
+  setInterval(() => {
+    left -= 2;
+    if (left == -(6 * 180)) {
+      left = 0;
+    }
+    listRef.value.style.left = left + "px";
+  }, 20);
+};
+
 onMounted(() => {
   setInterval(() => {
     let currentTop = parseInt(window.getComputedStyle(imgRef.value).top);
@@ -15,6 +30,10 @@ onMounted(() => {
 
     imgRef.value.style.top = newTop + "px";
   }, 1500);
+
+  listRef.value.innerHTML += listRef.value.innerHTML;
+
+  move();
 });
 </script>
 
@@ -22,7 +41,8 @@ onMounted(() => {
   <div class="home">
     <div class="header">
       <img src="@/assets/logo.png" alt="" /><span
-        class="material-symbols-outlined" style="color: #9548ee;"
+        class="material-symbols-outlined"
+        style="color: #9548ee"
       >
         language
       </span>
@@ -73,6 +93,22 @@ onMounted(() => {
         </center>
       </div>
     </div>
+    <h3>PARTNERS & SUPPORTERS</h3>
+    <div class="swipe" ref="swipe">
+      <div class="list" ref="listRef">
+        <div><img src="@/assets/img/partner-logo-1.webp" alt="" /></div>
+        <div><img src="@/assets/img/partner-logo-2.webp" alt="" /></div>
+        <div><img src="@/assets/img/partner-logo-3.webp" alt="" /></div>
+        <div><img src="@/assets/img/partner-logo-1.webp" alt="" /></div>
+        <div><img src="@/assets/img/partner-logo-2.webp" alt="" /></div>
+        <div><img src="@/assets/img/partner-logo-3.webp" alt="" /></div>
+      </div>
+    </div>
+    <center>
+      <p style="margin: 20px 0px">
+        Copyright © 2023 - 2024 Rexx. All rights reserved.
+      </p>
+    </center>
   </div>
 </template>
 
@@ -81,7 +117,7 @@ onMounted(() => {
   width: auto;
   height: auto;
   padding-bottom: 70px;
-  background: linear-gradient(to bottom,#000000,#250C34);
+  background: linear-gradient(to bottom, #000000, #250c34);
   .header {
     width: auto;
     height: auto;
@@ -209,7 +245,7 @@ onMounted(() => {
       }
     }
     .block_kyc {
-      margin-top: 15px;
+      margin-top: 25px;
       display: flex;
       justify-content: space-around;
       flex-direction: column;
@@ -227,6 +263,41 @@ onMounted(() => {
           width: 200px;
           height: 75px;
           margin: auto;
+        }
+      }
+    }
+  }
+  h3 {
+    text-align: center;
+    margin: 15px 0px;
+  }
+  .swipe {
+    width: 360px;
+    height: 70px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    border: 1px solid #9548ee;
+    box-shadow: rgb(149, 72, 237) 0px 0px 130px -10px;
+    margin: 20px auto;
+    .list {
+      position: absolute;
+      left: 0;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      div {
+        width: 180px;
+        height: 80px;
+        padding: 0px 10px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        border-right: 1px solid #9548ee;
+        img {
+          width: 160px;
+          height: auto;
         }
       }
     }
