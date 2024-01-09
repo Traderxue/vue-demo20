@@ -22,6 +22,20 @@ const router = createRouter({
         {
           path: "/wallet",
           component: () => import("@/views/wallet/wallet.vue"),
+          children:([
+            {
+              path:"",
+              component:()=>import("@/views/wallet/component/usdt.vue")
+            },
+            {
+              path:"/usdt",
+              component:()=>import("@/views/wallet/component/usdt.vue")
+            },
+            {
+              path:"/rexx",
+              component:()=>import("@/views/wallet/component/rexx.vue")
+            }
+          ])
         },
         {
           path: "/mine",
