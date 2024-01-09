@@ -6,7 +6,7 @@ const active = ref(0)
 <template>
     <div class="index">
         <RouterView />
-        <van-tabbar v-model="active" route active-color="#9548EE" inactive-color="#000">
+        <van-tabbar v-model="active" route active-color="#9548ee" inactive-color="#FFF">
             <van-tabbar-item to="/home">
                 <span class="material-symbols-outlined">
                     home
@@ -37,10 +37,10 @@ const active = ref(0)
 
 <style lang="scss" scoped>
 .van-tabbar {
-    background: rgba($color: #FFF, $alpha: 0.8);
+    background: rgba($color: #160921, $alpha: 1);
 }
 
 .van-tabbar-item {
-    background: rgba($color: #FFF, $alpha: 0.8);
+    background: rgba($color: #160921, $alpha: 1);
 }
 </style>

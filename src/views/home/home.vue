@@ -22,7 +22,7 @@ onMounted(() => {
   <div class="home">
     <div class="header">
       <img src="@/assets/logo.png" alt="" /><span
-        class="material-symbols-outlined"
+        class="material-symbols-outlined" style="color: #9548ee;"
       >
         language
       </span>
