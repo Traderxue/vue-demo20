@@ -1,6 +1,7 @@
 <script setup>
 
 </script>
+
 <template>
     <div class="index">
         <RouterView />
@@ -34,10 +35,11 @@
 </template>
 
 <style lang="scss" scoped>
-.van-tabbar{
+.van-tabbar {
     background: rgba($color: #FFF, $alpha: 0.8);
 }
-.van-tabbar-item{
+
+.van-tabbar-item {
     background: rgba($color: #FFF, $alpha: 0.8);
 }
 </style>

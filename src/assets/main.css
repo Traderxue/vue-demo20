@@ -9,8 +9,8 @@ body,
 .wrapper {
   width: 100%;
   height: 100%;
-  color: #000;
-  background: #FFF;
+  color: #fcfcfc;
+  background: linear-gradient(to bottom,#000000,#250C34);
   font-size: 14px;
 }
 
