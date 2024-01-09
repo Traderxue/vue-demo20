@@ -1,4 +1,5 @@
 <script setup>
+import { onBeforeUnmount } from "vue";
 import { onMounted } from "vue";
 import { ref } from "vue";
 
@@ -9,19 +10,21 @@ const listRef = ref(null);
 const swipe = ref(null);
 
 let left = 0;
-
-const move = () => {
-  setInterval(() => {
+let timer1;
+let timer2 = setInterval(() => {
     left -= 2;
     if (left == -(6 * 180)) {
       left = 0;
     }
     listRef.value.style.left = left + "px";
   }, 20);
+
+const move = () => {
+  timer2
 };
 
 onMounted(() => {
-  setInterval(() => {
+  timer1 = setInterval(() => {
     let currentTop = parseInt(window.getComputedStyle(imgRef.value).top);
     let newTop =
       currentTop == 0
@@ -35,6 +38,10 @@ onMounted(() => {
 
   move();
 });
+onBeforeUnmount(()=>{
+  clearInterval(timer1)
+  clearInterval(timer2)
+})
 </script>
 
 <template>
