@@ -30,6 +30,9 @@ const changeNav = (item) =>{
     <div class="nav">
       <span v-for="(item,index) in navList" :key="index" :class="active==item.title?'active':''" @click="changeNav(item)">{{item.title}}</span>
     </div>
+    <div class="exchange">
+      <span>交换</span>
+    </div>
     <RouterView/>
   </div>
 </template>
@@ -59,6 +62,13 @@ const changeNav = (item) =>{
       border-bottom: 3px solid #9548ee;      
       padding-bottom: 3px;
     }
+  }
+  .exchange{
+    margin: 10px 0px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba($color: #9548ee, $alpha: 0.9);
   }
 }
 </style>
